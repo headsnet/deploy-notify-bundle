@@ -1,0 +1,9 @@
+
+<p>Hi {{ recipient.name }}.</p>
+
+<p>The {{ config.app_name }} application has been updated. Below are the latest changes.</p>
+
+{{ changelog|raw|nl2br }}
+
+<p>View the full <a href="{{ absolute_url(path('change_log')) }}">Change Log</a> for more information.</p>
+

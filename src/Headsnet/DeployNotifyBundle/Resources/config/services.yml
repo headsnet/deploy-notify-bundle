@@ -1,0 +1,18 @@
+
+services:
+
+  headsnet.deploy.notify.command:
+    class: Headsnet\DeployNotifyBundle\Command\DeployNotifyCommand
+    arguments:
+      - '@headsnet.deploy.notify.sender'
+    tags: ['console.command']
+
+  headsnet.deploy.notify.sender:
+    class: Headsnet\DeployNotifyBundle\DependencyInjection\DeployNotifySender
+    arguments:
+      - '@logger'
+      - '@mailer'
+      - '@twig'
+      - '%kernel.project_dir%'
+      - ''
+

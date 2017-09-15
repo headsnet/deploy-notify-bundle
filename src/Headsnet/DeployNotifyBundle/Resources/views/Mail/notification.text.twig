@@ -1,0 +1,10 @@
+
+Hi {{ recipient.name }}.
+
+The {{ config.app_name }} application has been updated. Below are the latest changes.
+
+{{ changelog|raw }}
+
+View the full Change Log for more information.
+{{ absolute_url(path('change_log')) }}
+

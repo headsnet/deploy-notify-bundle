@@ -64,6 +64,7 @@ headsnet_deploy_notify:
 	changelog:
 	    filename:             ~  # If specified, it will be included in email
 	    path:                 /  # Default is project root dir
+	    public_url:           ~  # Optionally add link to changelog in email
 	recipients:
 	    - { name: ~, email: ~ }
 	    - { name: ~, email: ~ }

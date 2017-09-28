@@ -5,5 +5,6 @@
 
 {{ changelog|raw|nl2br }}
 
-<p>View the full <a href="{{ absolute_url(path('change_log')) }}">Change Log</a> for more information.</p>
-
+{% if config.changelog.public_url %}
+<p>View the full <a href="{{ config.changelog.public_url }}">Change Log</a> for more information.</p>
+{% endif %}

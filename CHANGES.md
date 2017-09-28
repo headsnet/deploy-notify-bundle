@@ -1,3 +1,6 @@
+### Version 0.1.2:
+
+
  - Conditionally show public changelog URL in email template
  - Add "changelog.public_url" option to bundle configuration
 

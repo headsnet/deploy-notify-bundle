@@ -6,4 +6,4 @@ The {{ config.app_name }} application has been updated. Below are the latest cha
 {{ changelog|raw }}
 
 {% if config.changelog.public_url %}View the full Change Log for more information.
-{{ absolute_url(path('config.changelog.public_url')) }}{% endif %}
+{{ config.changelog.public_url }}{% endif %}

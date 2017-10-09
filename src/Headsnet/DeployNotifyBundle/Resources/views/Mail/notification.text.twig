@@ -3,7 +3,7 @@ Hi {{ recipient.name }}.
 
 The {{ config.app_name }} application has been updated. Below are the latest changes.
 
-{{ changelog|raw }}
+{{ changelog|striptags|raw }}
 
 {% if config.changelog.public_url %}View the full Change Log for more information.
 {{ config.changelog.public_url }}{% endif %}

@@ -72,7 +72,7 @@ class DeployNotifySender
 	 */
 	public function send()
 	{
-		$changeLogContent = $this->convertChangeLogMarkDown($this->loadChangeLog());
+		$changeLogContent = $this->loadChangeLog();
 
 		foreach ($this->config['recipients'] as $recipient)
 		{
@@ -114,7 +114,11 @@ class DeployNotifySender
 	}
 
 	/**
+	 * Convert a Markdown changelog in to corresponding HTML content
 	 *
+	 * @param string $changeLogContent
+	 *
+	 * @return string
 	 */
 	private function convertChangeLogMarkDown($changeLogContent)
 	{
@@ -133,9 +137,10 @@ class DeployNotifySender
 	private function sendEmail(array $recipient, string $changeLogContent)
 	{
 		$data = [
-			'recipient' => $recipient,
-			'config'    => $this->config,
-			'changelog' => $changeLogContent
+			'recipient'     => $recipient,
+			'config'        => $this->config,
+			'changelog'     => $changeLogContent,
+			'changelogHtml' => $this->convertChangeLogMarkDown($changeLogContent)
 		];
 
 		$subject = $this->config['email']['subject'] . ' - ' . $this->config['app_name'];

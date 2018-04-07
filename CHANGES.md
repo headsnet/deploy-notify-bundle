@@ -1,3 +1,8 @@
+### 07 April 2018 - Version 0.1.7:
+ - Add "Contributing" section to readme
+ - Correct outdated configuration documentation
+ - Improve layout of bullet point items
+
 ### 09 October 2017 - Version 0.1.6:
  - Apply HTML email formatting to template
 

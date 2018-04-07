@@ -74,3 +74,6 @@ headsnet_deploy_notify:
 
 ```
 
+## Contributing
+
+Contributions are welcome. Please submit via pull requests. 

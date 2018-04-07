@@ -27,7 +27,7 @@ class HeadsnetDeployNotifyExtension extends Extension
 		$config = $this->processConfiguration($configuration, $configs);
 
 		$def = $container->getDefinition('headsnet.deploy.notify.sender');
-		$def->replaceArgument(4, $config);
+		$def->replaceArgument(5, $config);
 	}
 
 }

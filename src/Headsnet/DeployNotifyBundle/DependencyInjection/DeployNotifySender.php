@@ -28,6 +28,11 @@ class DeployNotifySender
 	private $twig;
 
 	/**
+	 * @var ConvertMarkDown
+	 */
+	private $convertMarkDown;
+
+	/**
 	 * @var string
 	 */
 	private $projectDir;
@@ -41,14 +46,23 @@ class DeployNotifySender
 	 * @param LoggerInterface   $logger
 	 * @param \Swift_Mailer     $mailer
 	 * @param \Twig_Environment $twig
+	 * @param ConvertMarkDown   $convertMarkDown
 	 * @param string            $projectDir
 	 * @param array             $config
 	 */
-	public function __construct(LoggerInterface $logger, \Swift_Mailer $mailer, \Twig_Environment $twig, string $projectDir, array $config)
+	public function __construct(
+		LoggerInterface   $logger,
+		\Swift_Mailer     $mailer,
+		\Twig_Environment $twig,
+		ConvertMarkDown   $convertMarkDown,
+		string            $projectDir,
+		array             $config
+	)
 	{
 		$this->logger = $logger;
 		$this->mailer = $mailer;
 		$this->twig = $twig;
+		$this->convertMarkDown = $convertMarkDown;
 		$this->projectDir = $projectDir;
 		$this->config = $config;
 	}
@@ -65,7 +79,6 @@ class DeployNotifySender
 			$this->logger->info("Sending deployment notification to: " . $recipient['name']);
 
 			$this->sendEmail($recipient, $changeLogContent);
-
 		}
 	}
 
@@ -101,15 +114,33 @@ class DeployNotifySender
 	}
 
 	/**
+	 * Convert a Markdown changelog in to corresponding HTML content
+	 *
+	 * @param string $changeLogContent
+	 *
+	 * @return string
+	 */
+	private function convertChangeLogMarkDown($changeLogContent)
+	{
+		if (substr($this->config['changelog']['filename'], -3) == '.md')
+		{
+			$changeLogContent = $this->convertMarkDown->convertToHtml($changeLogContent);
+		}
+
+		return $changeLogContent;
+	}
+
+	/**
 	 * @param array  $recipient
 	 * @param string $changeLogContent
 	 */
 	private function sendEmail(array $recipient, string $changeLogContent)
 	{
 		$data = [
-			'recipient' => $recipient,
-			'config'    => $this->config,
-			'changelog' => $changeLogContent
+			'recipient'     => $recipient,
+			'config'        => $this->config,
+			'changelog'     => $changeLogContent,
+			'changelogHtml' => $this->convertChangeLogMarkDown($changeLogContent)
 		];
 
 		$subject = $this->config['email']['subject'] . ' - ' . $this->config['app_name'];

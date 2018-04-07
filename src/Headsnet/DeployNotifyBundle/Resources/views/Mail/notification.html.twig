@@ -1,9 +1,30 @@
+<html>
+<head>
+	<title>{{ config.app_name }} Deployment Notification</title>
+	<style type="text/css">
+		body {font-family: Arial, helvetica, sans-serif; font-size: 90%; color: #333; width: 700px;}
+		h1, h2, h3, h4 {margin: 10px 0;	padding: 10px 0;}
+		.lead {font-size: 110%;}
+		ul {margin: 0;}
+		li {margin: 2px;}
+	</style>
+</head>
+<body>
 
-<p>Hi {{ recipient.name }}.</p>
+	<p class="lead">Hi {{ recipient.name }}.</p>
 
-<p>The {{ config.app_name }} application has been updated. Below are the latest changes.</p>
+	<p class="lead"><em>The {{ config.app_name }} application has been updated.</em></p>
 
-{{ changelog|raw|nl2br }}
+	{% if config.changelog.filename %}
+		<p class="lead"><em>Below are the latest changes.</em></p>
 
-<p>View the full <a href="{{ absolute_url(path('change_log')) }}">Change Log</a> for more information.</p>
+		{{ changelogHtml|raw }}
+	{% endif %}
+
+	{% if config.changelog.public_url %}
+		<p>View the full <a href="{{ config.changelog.public_url }}">Change Log</a> for more information.</p>
+	{% endif %}
+
+</body>
+</html>
 

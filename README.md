@@ -39,12 +39,15 @@ headsnet_deploy_notify:
 ```
 
 You can optionally include a change log file in the email template. 
-Just specify the path to the change log file:
+Just specify the name of the change log file:
 
 ```
 headsnet_deploy_notify:
-  changelog_file: path/to/CHANGES.md
+  changelog:
+    filename: CHANGES.md
 ```
+
+Markdown files ending with a `.md` extension will automatically be parsed in to HTML.
 
 ## Usage
 
@@ -62,11 +65,15 @@ headsnet_deploy_notify:
 	    sender_name:          '' # Optional
 	    subject:              'Deployment Notification'
 	changelog:
-	    filename:             ~  # If specified, it will be included in email
+	    filename:             ~  # If specified, changelog contents will be included in email
 	    path:                 /  # Default is project root dir
+	    public_url:           ~  # Optionally add link to changelog in email
 	recipients:
 	    - { name: ~, email: ~ }
 	    - { name: ~, email: ~ }
 
 ```
 
+## Contributing
+
+Contributions are welcome. Please submit via pull requests. 

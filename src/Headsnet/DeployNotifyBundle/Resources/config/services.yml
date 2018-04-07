@@ -1,6 +1,9 @@
 
 services:
 
+  headsnet.deploy.convert.markdown:
+    class: Headsnet\DeployNotifyBundle\DependencyInjection\ConvertMarkDown
+
   headsnet.deploy.notify.command:
     class: Headsnet\DeployNotifyBundle\Command\DeployNotifyCommand
     arguments:
@@ -13,6 +16,7 @@ services:
       - '@logger'
       - '@mailer'
       - '@twig'
+      - '@headsnet.deploy.convert.markdown'
       - '%kernel.project_dir%'
       - ''
 

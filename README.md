@@ -49,6 +49,13 @@ headsnet_deploy_notify:
 
 Markdown files ending with a `.md` extension will automatically be parsed in to HTML.
 
+You can also override the mailer used to send the mails with your own service.
+
+```
+headsnet_deploy_notify:
+  mailer: swiftmailer.mailer.my_mailer
+```
+
 ## Usage
 
 Simply execute the console command from your chosen deployment system.
@@ -60,6 +67,7 @@ Simply execute the console command from your chosen deployment system.
 ```
 headsnet_deploy_notify:
 	app_name:                 ~  # Required
+	mailer:                   swiftmailer.mailer.default
 	email:
 	    sender_email:         ~  # Required
 	    sender_name:          '' # Optional

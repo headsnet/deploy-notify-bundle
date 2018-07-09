@@ -30,6 +30,10 @@ class Configuration implements ConfigurationInterface
 					->info('The name of the application, used to identify which application has been deployed')
 				->end()
 
+				->scalarNode('mailer')
+					->defaultValue('swiftmailer.mailer')
+				->end()
+
 				->arrayNode('email')
 					->children()
 						->scalarNode('sender_email')

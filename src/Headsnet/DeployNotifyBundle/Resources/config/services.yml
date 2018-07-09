@@ -14,7 +14,7 @@ services:
     class: Headsnet\DeployNotifyBundle\DependencyInjection\DeployNotifySender
     arguments:
       - '@logger'
-      - '@mailer'
+      - '@headsnet.deploy_notify.mailer'
       - '@twig'
       - '@headsnet.deploy.convert.markdown'
       - '%kernel.project_dir%'

@@ -12,6 +12,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class HeadsnetDeployNotifyExtension extends Extension
 {
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -28,6 +29,8 @@ class HeadsnetDeployNotifyExtension extends Extension
 
 		$def = $container->getDefinition('headsnet.deploy.notify.sender');
 		$def->replaceArgument(5, $config);
+
+		$container->setAlias('headsnet.deploy_notify.mailer', $config['mailer']);
 	}
 
 }

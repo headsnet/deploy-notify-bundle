@@ -1,3 +1,6 @@
+### 09 July 2018 - Version 0.1.9:
+ - Completely replace recipient list when overriding configuration
+
 ### 09 July 2018 - Version 0.1.8:
  - Support specifying an alternative mailer service
 

@@ -69,6 +69,7 @@ class Configuration implements ConfigurationInterface
 				->end()
 
 				->arrayNode('recipients')
+					->performNoDeepMerging()
 					->prototype('array')
 						->children()
 							->scalarNode('name')->end()

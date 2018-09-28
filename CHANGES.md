@@ -1,3 +1,6 @@
+### 27 September 2018 - Version 0.1.10:
+ - Symfony 4 support
+
 ### 09 July 2018 - Version 0.1.9:
  - Completely replace recipient list when overriding configuration
 

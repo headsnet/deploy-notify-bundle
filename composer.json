@@ -24,8 +24,8 @@
     "php": ">=7.0",
     "michelf/php-markdown": "^1.7",
     "psr/log": "^1.0",
-    "symfony/console": "^3.3",
-    "symfony/framework-bundle": "^3.0",
+    "symfony/console": "^3.3 || ~4.0",
+    "symfony/framework-bundle": "^3.0 || ~4.0",
     "symfony/swiftmailer-bundle": "^2.3 || ^3.0",
     "twig/twig": "^2.0"
   },

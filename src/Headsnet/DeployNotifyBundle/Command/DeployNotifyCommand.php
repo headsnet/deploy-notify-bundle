@@ -4,14 +4,14 @@ declare(strict_types=1);
 namespace Headsnet\DeployNotifyBundle\Command;
 
 use Headsnet\DeployNotifyBundle\DependencyInjection\DeployNotifySender;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Command
  */
-class DeployNotifyCommand extends ContainerAwareCommand
+class DeployNotifyCommand extends Command
 {
 	/**
 	 * @var DeployNotifySender

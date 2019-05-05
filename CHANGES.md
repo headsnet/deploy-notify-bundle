@@ -1,3 +1,6 @@
+### 05 May 2019 - Version 0.1.11:
+ - Do not extend deprecated ContainerAwareCommand
+
 ### 27 September 2018 - Version 0.1.10:
  - Symfony 4 support
 
